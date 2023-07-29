@@ -1,41 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PC BUILDER
 
-## Getting Started
+## Description
+PC Builder is a clean and straightforward website for PC parts and components built using Next.js. It allows users to build their own PC by selecting various PC components from different categories. The website features a PC Builder tool, Featured Products, and Featured Categories, along with Product Detail pages for each component.
 
-First, run the development server:
+## Deployment URL
+[PC Builder](https://pc-builder-six.vercel.app)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Features
+- **Navbar**: The website has a navigation bar with a "PC Builder" button that redirects users to the PC Builder page. It also includes a Categories dropdown with routes for different PC component categories.
+- **Home Page (SSG)**: The Home page displays 6 random Featured Products, each with image, name, category, price, status, and rating. Clicking on any Featured Product card takes the user to the Product Detail page.
+- **Featured Categories (SSG)**: The Home page showcases 6 Featured Categories. Clicking on any category takes the user to a page displaying at least 3 products of that category. Each product card is clickable and leads to the Product Detail page.
+- **Product Detail Page (SSG)**: The Product Detail page displays detailed information about each PC component, including image, name, category, price, status, description, key features, individual rating, average rating, and reviews.
+- **PC Builder Page (SSR)**: The PC Builder page allows users to choose components from CPU, Motherboard, RAM, Power Supply Unit, Storage Device, and Monitor categories. After adding 5-6 components, the user can click the "Complete Build" button.
+- **Complete Build Button**: The "Complete Build" button is disabled until the user adds at least 5-6 components to the PC Builder.
+- **Protected/Private Route (Bonus)**: The PC Builder page is a protected/private route accessible only to logged-in users. User authentication is implemented using NextAuth with Google/Github login providers.
+- **Success Alert (Bonus)**: Clicking on the "Complete Build" button shows a success alert.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
+- Next.js
+- Redux (for state management in PC Builder)
+- NextAuth (for user authentication)
+- HTML,Tailwind CSS (with responsive design for mobile and desktop)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Setup Instructions
+1. Clone the repository from GitHub.
+2. Install the required dependencies using `npm install`.
+3. Create a `.env.local` file and add the necessary environment variables (e.g., API keys for Google/Github login).
+4. Run the development server using `npm run dev`.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Usage
+- Home Page: Displays featured products and categories. Click on any product card or category to explore more.
+- Featured Category Pages: Show products from a specific category. Click on any product card for detailed information.
+- Product Detail Pages: Provide detailed information about each PC component.
+- PC Builder Page: Select components for building a PC. Click on "Choose/Select" buttons to view available components. Click "Add to Builder" to add components to the PC Builder. The "Complete Build" button will be enabled after adding all components.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Screenshots
+[Add relevant screenshots of the website]
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Bonus Features
+- The PC Builder page is a protected/private route accessible only to logged-in users.
+- Success alert displayed after clicking the "Complete Build" button.
 
-## Learn More
+## Author
+MD SABBIR REZA SHAFI
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# PC-BUILDER
-# PC-BUILDER
-# PC-BUILDER
