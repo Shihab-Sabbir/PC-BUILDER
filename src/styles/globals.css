@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.sideBanner {
+    background-image: url('../assets/banner/sideImg.png');
+    background-size: fill;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: blur(5px);
+  }
