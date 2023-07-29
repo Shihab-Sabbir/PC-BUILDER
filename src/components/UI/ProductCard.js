@@ -12,7 +12,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 
-export default function ProductCard({ product, forBuild }) {
+export default function ProductCard({ product, forBuild,featured }) {
     const router = useRouter();
     const dispatch = useDispatch();
 
