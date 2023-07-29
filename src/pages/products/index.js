@@ -24,7 +24,7 @@ Products.getLayout = function getLayout(page) {
 
 export const getStaticProps = async () => {
   try {
-    const productResponse = await fetch("http://localhost:3000/api/products");
+    const productResponse = await fetch(`${process.env.URL}/api/products`);
     if (!productResponse.ok) {
       throw new Error("Failed to fetch products");
     }

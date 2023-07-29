@@ -37,7 +37,7 @@ HomePage.getLayout = function getLayout(page) {
 export const getStaticProps = async () => {
   try {
     // Fetch products
-    const productResponse = await fetch("http://localhost:3000/api/products");
+    const productResponse = await fetch(`${process.env.URL}/api/products`);
     if (!productResponse.ok) {
       throw new Error("Failed to fetch products");
     }
@@ -45,7 +45,7 @@ export const getStaticProps = async () => {
     const products = productData?.data || [];
 
     // Fetch categories
-    const categorieResponse = await fetch("http://localhost:3000/api/categories");
+    const categorieResponse = await fetch(`${process.env.URL}/api/categories`);
     if (!categorieResponse.ok) {
       throw new Error("Failed to fetch categories");
     }
