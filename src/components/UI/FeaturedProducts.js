@@ -3,7 +3,6 @@ import ProductCard from "./ProductCard";
 
 export default function FeaturedProducts({ products }) {
     const featuredProducts = products?.filter(product => product?.featured);
-
     return (
         <div className="p-2 lg:p-10">
             <p className='text-xl font-bold text-center'>Featured Products</p>

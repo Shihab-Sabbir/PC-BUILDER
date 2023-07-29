@@ -4,9 +4,78 @@
 
 
 .sideBanner {
-    background-image: url('../assets/banner/sideImg.png');
+    background-image: url('../assets/banner/sideImg.gif');
     background-size: fill;
     background-repeat: no-repeat;
     background-position: center;
-    filter: blur(5px);
   }
+
+
+  @keyframes fadeInDiscount {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #f78f00 0%, #fceabb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInDiscount 0.5s ease-in-out;
+}
+
+
+@keyframes animate-shakeButton {
+  0% {
+      transform: translateX(0) !important;
+  }
+  25% {
+      transform: translateX(-30px) !important;
+  }
+  50% {
+      transform: translateX(30px) !important;
+  }
+  75% {
+      transform: translateX(-30px) !important;
+  }
+  100% {
+      transform: translateX(0) !important;
+  }
+}
+
+
+@keyframes bubbleAnimation {
+  0% {
+      opacity: 0;
+      transform: scale(0);
+  }
+  25% {
+      opacity: 1;
+      transform: scale(1);
+  }
+  50% {
+      opacity: 0;
+      transform: scale(0);
+  }
+  75% {
+      opacity: 1;
+      transform: scale(1);
+  }
+  100% {
+      opacity: 0;
+      transform: scale(0);
+  }
+}
+
+.bg-gradient-bubble {
+  background-image: radial-gradient(#6de7ef 10%, transparent 10%);
+  background-size: 15px 15px;
+  position: absolute;
+  animation: bubbleAnimation 5s linear infinite;
+  pointer-events: none;
+}

@@ -5,20 +5,21 @@ import img1 from '../../assets/banner/img-1.png';
 import img2 from '../../assets/banner/img-2.png';
 import img3 from '../../assets/banner/img-3.png';
 import img4 from '../../assets/banner/img-4.png';
-import sideImg from '../../assets/banner/sideImg.png';
+
 import Image from "next/image";
 import {
     Card,
     CardHeader,
     CardBody,
     Typography,
-    Avatar,
 } from "@material-tailwind/react";
 import Link from "next/link";
+import { useState } from "react";
 
 
  
 export default function Banner() {
+    const [isHovered, setIsHovered] = useState(false);
     return (
         <div className="2xl:flex my-2">
             <Carousel
@@ -59,7 +60,7 @@ export default function Banner() {
                     className="h-full w-full object-cover"
                 />
             </Carousel>
-            <Card
+            {/* <Card
                 shadow={false}
                 className="relative grid w-full 2xl:max-w-[28rem] rounded-none items-end justify-center overflow-hidden text-center max-h-[490px] "
             >
@@ -91,7 +92,13 @@ export default function Banner() {
                         A flat 10% discout 
                     </Typography>
                 </CardBody>
-            </Card>
+            </Card> */}
+            <Card
+            shadow={false}
+            className="relative grid w-full 2xl:max-w-[40%] rounded-none items-end justify-center overflow-hidden text-center h-[490px] cursor-pointer sideBanner"
+        >
+            
+        </Card>
         </div>
     );
 }
