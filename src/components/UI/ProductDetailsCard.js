@@ -58,15 +58,15 @@ export default function ProductDetailsCard({ product }) {
         </Card>
         <div>
           <Card className="mb-4 p-[20px]">
-            <Typography variant="subtitle" color="blue" className="mb-1">
+            <Typography variant="subtitle1" color="blue" className="mb-1">
               Key Features:
             </Typography>
-            {product.key_features?.length ? (
+            {product.key_features ? (
               <ul className="list-disc pl-6">
-                {product.key_features.map((feature, idx) => (
+                {Object.entries(product.key_features).map(([title, description], idx) => (
                   <li key={idx}>
-                    <strong>{feature.title}: </strong>
-                    {feature.description}
+                    <strong>{title}: </strong>
+                    {description}
                   </li>
                 ))}
               </ul>

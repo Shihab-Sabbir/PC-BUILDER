@@ -2,6 +2,7 @@
 import RootLayout from '@/components/Layouts/RootLayout';
 import { removeProduct } from '@/redux/build/buildSlice';
 import { Button } from '@material-tailwind/react';
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react'
@@ -11,8 +12,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 export default function Builder(props) {
   const { categories } = props;
-  const build = useSelector((state) => state.build);
+  const {data:session} = useSession()
   const router = useRouter();
+  const build = useSelector((state) => state.build);
   const dispatch = useDispatch()
   const categoryIcons = {
     Motherboard: <BsMotherboard />,
@@ -43,6 +45,7 @@ export default function Builder(props) {
     }
   }
 
+  
   return (
     <div className='p-[20px] flex flex-col gap-4 max-w-[1000px] mx-auto'>
       {categories?.map((category, idx) => (

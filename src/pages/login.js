@@ -5,7 +5,6 @@ import { FcGoogle } from 'react-icons/fc';
 
 const LoginPage = () => {
 const callbackUrl = 'https://pc-builder-six.vercel.app/';
-
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-400 to-purple-600">
       <Head>

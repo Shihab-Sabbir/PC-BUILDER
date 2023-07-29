@@ -22,7 +22,6 @@ import {
   Square3Stack3DIcon,
   ChevronDownIcon,
   PowerIcon,
-  RocketLaunchIcon,
   Bars2Icon,
 } from "@heroicons/react/24/outline";
 
