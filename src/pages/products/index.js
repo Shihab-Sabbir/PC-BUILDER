@@ -5,10 +5,10 @@ import ProductCard from "@/components/UI/ProductCard";
 export default function Products(props) {
     const {products} = props
     return (
-        <div className="p-2 sm:p-10">
-            <p className='text-xl font-bold'>Featured Products</p>
-            <p className='pt-[20px] pb-[50px] font-thin '>Check & Get Your Desired Product!</p>
-            <div className='grid xs:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2'>
+        <div className="">
+            <p className='text-xl font-bold text-center pt-10'>All Products</p>
+            <p className='pt-[20px] pb-[50px] text-center font-thin font-[calibri]'>Check & Get Your Desired Product!</p>
+            <div className='grid xs:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 bg-blue-gray-50 p-2 sm:p-10 '>
                 {products?.map(product => <div key={product._id}>
                     <ProductCard product={product}/>
                 </div>)}

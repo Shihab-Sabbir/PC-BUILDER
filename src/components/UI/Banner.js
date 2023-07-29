@@ -93,12 +93,12 @@ export default function Banner() {
                     </Typography>
                 </CardBody>
             </Card> */}
-            <Card
+            {/* <Card
             shadow={false}
-            className="relative grid w-full 2xl:max-w-[40%] rounded-none items-end justify-center overflow-hidden text-center h-[490px] cursor-pointer sideBanner"
+            className="relative grid w-full 2xl:max-w-[200px] rounded-none items-end justify-center overflow-hidden text-center h-[490px] cursor-pointer sideBanner"
         >
             
-        </Card>
+        </Card> */}
         </div>
     );
 }

@@ -3,13 +3,12 @@
 @tailwind utilities;
 
 
-.sideBanner {
+/* .sideBanner {
     background-image: url('../assets/banner/sideImg.gif');
-    background-size: fill;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
   }
-
 
   @keyframes fadeInDiscount {
     0% {
@@ -78,4 +77,4 @@
   position: absolute;
   animation: bubbleAnimation 5s linear infinite;
   pointer-events: none;
-}
+} */
