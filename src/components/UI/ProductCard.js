@@ -27,7 +27,7 @@ export default function ProductCard({ product, forBuild,featured }) {
     };
 
     return (
-        <div>
+        <div className="">
             <Card className="">
                 <CardHeader shadow={false} floated={false} className="h-[300px]">
                     <img

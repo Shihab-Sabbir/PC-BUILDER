@@ -5,14 +5,14 @@ import { Button } from '@material-tailwind/react';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BsMotherboard, BsCpu, BsPower, BsMemory, BsDeviceHdd,BsFillStarFill } from 'react-icons/bs';
 import { CiMonitor } from 'react-icons/ci';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function Builder(props) {
   const { categories } = props;
-  const {data:session} = useSession()
+  const {data:session,status } = useSession()
   const router = useRouter();
   const build = useSelector((state) => state.build);
   const dispatch = useDispatch()
@@ -45,7 +45,12 @@ export default function Builder(props) {
     }
   }
 
-  
+  useEffect(() => {
+    if(!session && status !== "loading"){
+      router.push('https://pc-builder-six.vercel.app/api/auth/signin')
+    }
+  }, [router, session,status ])
+    
   return (
     <div className='p-[20px] flex flex-col gap-4 max-w-[1000px] mx-auto'>
       {categories?.map((category, idx) => (
@@ -91,7 +96,7 @@ Builder.getLayout = function getLayout(page) {
 };
 
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   try {
     // Fetch products
     const productResponse = await fetch(`${process.env.URL}/api/products`);
@@ -114,7 +119,6 @@ export const getStaticProps = async () => {
         products,
         categories,
       },
-      revalidate: 10,
     };
   } catch (error) {
     console.error("Error fetching data:", error.message);
@@ -123,7 +127,6 @@ export const getStaticProps = async () => {
         products: [],
         categories: [],
       },
-      revalidate: 10,
     };
   }
 };
