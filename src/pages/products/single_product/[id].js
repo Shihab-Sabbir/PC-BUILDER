@@ -56,7 +56,7 @@ export const getStaticProps = async ({ params }) => {
       props: {
         product,
       },
-      revalidate: 10,
+      revalidate: 1,
     };
   } catch (error) {
     console.error('Error fetching data:', error.message);
@@ -64,7 +64,7 @@ export const getStaticProps = async ({ params }) => {
       props: {
         product: null,
       },
-      revalidate: 10,
+      revalidate: 1,
     };
   }
 };

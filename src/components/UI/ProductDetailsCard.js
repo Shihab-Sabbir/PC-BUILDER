@@ -59,12 +59,14 @@ export default function ProductDetailsCard({ product }) {
       }
   
       const data = await response.json();
-      console.log("Updated Product:", data);
+    
   
       setUserReview({
         individual_rating: 0,
         review_description: "",
       });
+
+      window.alert('Review Submitted !')
     } catch (error) {
       console.error("Error updating product:", {error});
     }
