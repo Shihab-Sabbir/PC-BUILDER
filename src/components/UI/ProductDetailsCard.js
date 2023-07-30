@@ -188,7 +188,7 @@ export default function ProductDetailsCard({ product }) {
             <Typography color="gray">No reviews available.</Typography>
           )}
         </Card>
-        {!session || session?.user ? (
+        {session && session?.user ? (
           <Card className="my-8 p-[20px]">
             <Typography variant="subtitle" color="blue" className="mb-1">
               Add a review:
