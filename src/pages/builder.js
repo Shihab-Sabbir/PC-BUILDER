@@ -99,6 +99,7 @@ Builder.getLayout = function getLayout(page) {
 export const getStaticProps = async () => {
   try {
     // Fetch products
+    // ssr method !
     const productResponse = await fetch(`${process.env.URL}/api/products`);
     if (!productResponse.ok) {
       throw new Error("Failed to fetch products");
