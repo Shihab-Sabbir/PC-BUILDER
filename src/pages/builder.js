@@ -53,7 +53,7 @@ export default function Builder(props) {
     
   return (
     <div className='p-[20px] flex flex-col gap-4 max-w-[1000px] mx-auto'>
-      {categories?.map((category, idx) => (
+      {!!session && categories?.map((category, idx) => (
         <div key={idx} className='w-full rounded-lg bg-white p-4  shadow-lg'>
           <div className='flex items-center justify-between w-full'>
             <div>
@@ -96,7 +96,7 @@ Builder.getLayout = function getLayout(page) {
 };
 
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   try {
     // Fetch products
     const productResponse = await fetch(`${process.env.URL}/api/products`);
@@ -119,6 +119,7 @@ export const getServerSideProps = async () => {
         products,
         categories,
       },
+      revalidate: 10,
     };
   } catch (error) {
     console.error("Error fetching data:", error.message);
@@ -127,6 +128,7 @@ export const getServerSideProps = async () => {
         products: [],
         categories: [],
       },
+      revalidate: 10,
     };
   }
 };
