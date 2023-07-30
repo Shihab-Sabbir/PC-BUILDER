@@ -26,7 +26,7 @@ PC Builder is a clean and straightforward website for PC parts and components bu
 1. Clone the repository from GitHub.
 2. Install the required dependencies using `npm install`.
 3. Create a `.env` file and add the necessary environment variables (e.g., API keys for Google/Github login).
-4. Run the development server using `npm run dev`.
+4. Run the development server using `npm run dev`ot `yarn dev`
 
 ## Usage
 - Home Page: Displays featured products and categories. Click on any product card or category to explore more.
