@@ -1,7 +1,5 @@
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
-import { useSession, signIn, signOut } from "next-auth/react"
+import { useSession, signIn, signOut } from "next-auth/react";
 import {
   Navbar,
   MobileNav,
@@ -27,17 +25,18 @@ import {
 
 import { BsMotherboard, BsCpu, BsPower, BsMemory, BsDeviceHdd } from 'react-icons/bs';
 import { CiMonitor } from 'react-icons/ci';
-import menuImg from '../../assets/navbar/menu.png'
-import avatar from '../../assets/navbar/avatar.png'
+
+import menuImg from '../../assets/navbar/menu.png';
+import avatar from '../../assets/navbar/avatar.png';
 import Link from "next/link";
 import Image from "next/image";
- 
+
 // profile menu component
 const profileMenuItems = [
   { label: "My Profile", icon: UserCircleIcon, href: "/profile" },
   { label: "Sign Out", icon: PowerIcon },
 ];
- 
+
 function ProfileMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const { data: session } = useSession();
@@ -51,7 +50,13 @@ function ProfileMenu() {
           color="blue-gray"
           className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto"
         >
-          <Image src={session?.user?.image || avatar} width={55} height={55}  alt="User Avatar" className="border border-blue-500 p-0.5 h-[55px] w[55px] rounded-full"/>
+          <Image
+            src={session?.user?.image || avatar}
+            width={55}
+            height={55}
+            alt="User Avatar"
+            className="border border-blue-500 p-0.5 h-[55px] w-[55px] rounded-full"
+          />
           <ChevronDownIcon
             strokeWidth={2.5}
             className={`h-3 w-3 transition-transform ${isMenuOpen ? "rotate-180" : ""}`}
@@ -62,7 +67,6 @@ function ProfileMenu() {
         {profileMenuItems.map(({ label, icon: Icon, href }, key) => {
           const isLastItem = key === profileMenuItems.length - 1;
 
-          // If user is not signed in and it's the last item, show the "Sign In" option
           if (!session && isLastItem) {
             return (
               <MenuItem
@@ -80,7 +84,6 @@ function ProfileMenu() {
             );
           }
 
-          // If user is signed in and it's the last item, show the "Sign Out" option
           if (session && isLastItem) {
             return (
               <MenuItem
@@ -98,7 +101,6 @@ function ProfileMenu() {
             );
           }
 
-          // For other items, show them normally
           return (
             <MenuItem
               key={label}
@@ -118,54 +120,54 @@ function ProfileMenu() {
     </Menu>
   );
 }
- 
+
 // nav list menu
 const navListMenuItems = [
   {
     title: "CPU/Processor",
-    icon: <BsCpu/>,
-    href:'/products/CPU'
+    icon: <BsCpu />,
+    href: '/products/CPU'
   },
   {
     title: "Motherboard",
-    icon: <BsMotherboard/>,
-    href:'/products/Motherboard'
+    icon: <BsMotherboard />,
+    href: '/products/Motherboard'
   },
   {
     title: "Power Supply Unit",
-    icon: <BsPower/>,
-    href:'/products/Power Supply Unit'
+    icon: <BsPower />,
+    href: '/products/PowerSupplyUnit'
   },
   {
     title: "RAM",
-    icon: <BsMemory/>,
-    href:'/products/RAM'
+    icon: <BsMemory />,
+    href: '/products/RAM'
   },
   {
     title: "Storage",
-    icon: <BsDeviceHdd/>,
-    href:'/products/Storage'
+    icon: <BsDeviceHdd />,
+    href: '/products/Storage'
   },
   {
     title: "Monitor",
-    icon: <CiMonitor/>,
-    href:'/products/Monitor'
+    icon: <CiMonitor />,
+    href: '/products/Monitor'
   },
 ];
- 
+
 function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
- 
-  const renderItems = navListMenuItems.map(({ title, icon,href }) => (
-    <a href={href} key={title}>
+
+  const renderItems = navListMenuItems.map(({ title, icon, href }) => (
+    <Link href={href} key={title}>
       <MenuItem>
         <Typography color="blue-gray" className="mb-1 flex items-center gap-2 font-semibold text-sm">
-        {icon} {title}
+          {icon} {title}
         </Typography>
       </MenuItem>
-    </a>
+    </Link>
   ));
- 
+
   return (
     <React.Fragment>
       <Menu allowHover open={isMenuOpen} handler={setIsMenuOpen}>
@@ -189,7 +191,7 @@ function NavListMenu() {
             variant="gradient"
             className="col-span-3 grid h-full w-full place-items-center rounded-md"
           >
-          <Image src={menuImg} alt="image" className="h-full w-full"/>
+            <Image src={menuImg} alt="image" className="h-full w-full" />
           </Card>
           <ul className="col-span-4 w-full flex-col gap-1 hidden lg:flex">
             {renderItems}
@@ -205,29 +207,28 @@ function NavListMenu() {
     </React.Fragment>
   );
 }
- 
+
 // nav list component
 const navListItems = [
   {
     label: "Products",
     icon: CubeTransparentIcon,
-    href:'products'
+    href: '/products'
   },
   {
     label: "PC Builder",
     icon: CodeBracketSquareIcon,
-    href:'builder'
+    href: '/builder'
   },
 ];
- 
+
 function NavList() {
   return (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
       <NavListMenu />
-      {navListItems.map(({ label, icon ,href}, key) => (
+      {navListItems.map(({ label, icon, href }, key) => (
         <Link
           key={label}
-          as={href}
           href={`/${href}`}
           variant="small"
           color="blue-gray"
@@ -242,32 +243,29 @@ function NavList() {
     </ul>
   );
 }
- 
+
 export function PcBuilderNavbar() {
   const [isNavOpen, setIsNavOpen] = React.useState(false);
- 
+
   const toggleIsNavOpen = () => setIsNavOpen((cur) => !cur);
- 
+
   React.useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setIsNavOpen(false),
     );
   }, []);
- 
+
   return (
     <Navbar className="mx-auto p-2 lg:rounded-full lg:pl-6">
       <div className="relative mx-auto flex items-center text-blue-gray-900">
-       <Link
-       as="home"
-         href="/"
-       >
-       <Typography
-          className="mr-4 ml-2 cursor-pointer py-1.5 font-bold text-blue-600"
-        >
-          PC BUILDER
-        </Typography>
-       </Link>
+        <Link href="/" passHref>
+          <Typography
+            className="mr-4 ml-2 cursor-pointer py-1.5 font-bold text-blue-600"
+          >
+            PC BUILDER
+          </Typography>
+        </Link>
         <div className="absolute top-2/4 left-2/4 hidden -translate-x-2/4 -translate-y-2/4 lg:block">
           <NavList />
         </div>
